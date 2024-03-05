@@ -1,0 +1,17 @@
+class Solution:
+    def reverseWords(self, s: str) -> str:
+        word_queue:list=[]
+        pointer=-1
+        prev=" "
+        for i in range(len(s)):
+            if s[i]!=" " and prev == " ":
+                pointer=i
+            if s[i]==" " and prev !=" ":
+                word_queue.append(s[pointer:i])
+        result=""
+        for word in word_queue.reverse():
+            if result== "":
+                result=word
+            else:
+                result+=" " + word
+        return result
